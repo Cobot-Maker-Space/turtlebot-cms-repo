@@ -174,3 +174,4 @@ If ROS 2 is installed correctly, you’ll see an empty or populated list dependi
 
 ---
 
+edit this readme according to the current file of /src/.devcontainer/devcontainer.json as i have removed teh nvidia part and have deleted the part1 and aport 2 scripts so remove thing concerning them too and the new repo to be cloned has a new name "turtlrbot-cms-repo"
