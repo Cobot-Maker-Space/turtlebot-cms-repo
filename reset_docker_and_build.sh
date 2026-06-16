@@ -41,7 +41,7 @@ echo "Where is your .devcontainer folder?"
 echo "Press ENTER for default: $DEFAULT_PATH"
 read -p "Path: " USER_PATH
 
-# Fallback to default if empty
+# Fallback to default if empty, a small change for git bash completion
 TARGET_DIR="${USER_PATH:-$DEFAULT_PATH}"
 # Expand tilde (~) if present
 TARGET_DIR="${TARGET_DIR/#\~/$HOME}"
