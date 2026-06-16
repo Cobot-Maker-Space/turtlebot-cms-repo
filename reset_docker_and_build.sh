@@ -31,7 +31,7 @@ fi
 echo "Cleanup complete."
 
 # --- PATH SELECTION SECTION ---
-DEFAULT_PATH="$HOME/ros2-container/src/.devcontainer"
+DEFAULT_PATH="$HOME/turtlebot-cms-reposrc/.devcontainer"
 
 echo ""
 echo "==============================="

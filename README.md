@@ -17,7 +17,7 @@ This repository contains a ready-to-use **Docker-based ROS 2 Humble** developmen
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/Cobot-Maker-Space/turtlrbot-cms-repo.git
+git clone https://github.com/Cobot-Maker-Space/turtlebot-cms-repo.git
 ```
 
 ---
