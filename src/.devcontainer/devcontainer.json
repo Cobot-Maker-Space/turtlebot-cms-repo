@@ -1,0 +1,60 @@
+    {
+        "name": "my-devcontainer-image",
+        "image":"my-devcontainer-image:latest",
+        // "name": "ROS 2 Development Container",
+        "privileged": true,
+        "remoteUser": "user",
+        "updateRemoteUserUID": false,
+
+        
+
+        "workspaceFolder": "/home/ros2_ws",
+        "workspaceMount": "source=${localWorkspaceFolder},target=/home/ros2_ws/src,type=bind",
+        "customizations": {
+            "vscode": {
+                "extensions":[
+                    "ms-vscode.cpptools",
+                    "ms-vscode.cpptools-themes",
+                    "twxs.cmake",
+                    "donjayamanne.python-extension-pack",
+                    "eamodio.gitlens",
+                    "ms-iot.vscode-ros"
+                ]
+            }
+        },
+        "containerEnv": {
+            "DISPLAY": ":0",
+            "ROS_LOCALHOST_ONLY": "0",
+            "QT_X11_NO_MITSHM": "1",
+            "ROS_DOMAIN_ID": "30"
+            // "NVIDIA_VISIBLE_DEVICES": "all",
+            // "NVIDIA_DRIVER_CAPABILITIES": "all"
+        },
+        "runArgs": [
+            "--net=host",
+            // "--gpus=all",
+            "-e", "DISPLAY",
+            "--device=/dev/video0",
+            "--device=/dev/dri",
+            // "--volume=/tmp/.X11-unix:/tmp/.X11-unix",
+            "--group-add=video"
+        ],
+
+
+
+        "mounts": [
+            // Comment the below line for MacOS or Windows Build as its meant for GPU acceleration Access on Linux
+            "source=/dev/dri,target=/dev/dri,type=bind,consistency=cached",
+            "source=/tmp/.X11-unix,target=/tmp/.X11-unix,type=bind",
+            
+            "source=${localWorkspaceFolder}/../cache/humble/build,target=/home/ros2_ws/build,type=bind",
+            "source=${localWorkspaceFolder}/../cache/humble/install,target=/home/ros2_ws/install,type=bind",
+            "source=${localWorkspaceFolder}/../cache/humble/log,target=/home/ros2_ws/log,type=bind",
+            "source=/sys,target=/sys,type=bind",
+            "source=/dev,target=/dev,type=bind"
+
+        ],
+        
+        // For first time users and setup use this command, then you can change it to the above one after everything is cnmfigured
+        "postCreateCommand": "sudo chmod -R 777 src build install log && colcon build --symlink-install"
+    }
