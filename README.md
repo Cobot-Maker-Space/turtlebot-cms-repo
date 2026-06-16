@@ -22,56 +22,71 @@ git clone https://github.com/Cobot-Maker-Space/turtlebot-cms-repo.git
 
 ---
 
-### 2. Create the Docker image
+### 2. Build the Container Image
 
-#### Modify the Dockerfile
+This repository includes a build helper script for Linux and a native Windows helper for PowerShell/cmd.
 
-1. Navigate to the following directory:
+#### Linux (bash / WSL)
+
+1. Open a terminal.
+2. Go to the repository root:
 
 ```bash
-   cd ~/turtlrbot-cms-repo/src/.devcontainer/
+cd ~/turtlebot-cms-repo
 ```
-2. Open the file via nano or via VS Code (your choice):
+3. Make the script executable once:
 
 ```bash
-   nano Dockerfile
-```
-3. At the very top of the file, you will see:
-
-```bash
-   # FROM ros:humble
-
-   FROM my-devcontainer-image:latest
-```
-4. Modify it so it becomes:
-
-```bash
-   FROM ros:humble
-
-   # FROM my-devcontainer-image:latest
-```
-   In other words:
-
-   * Uncomment the line: FROM ros:humble
-   * Comment the line: FROM my-devcontainer-image:latest
-
-5. Save and close the file.
-
-#### Building the new Container
-
-This script simply deletes all the docker containers and images if allowed yes and if no, then only deletes the Docker image required by this repo. You won't require sudo for this step if the script permisisons are already set to Executable.
-
-```bash
-cd ~/turtlrbot-cms-repo
 sudo chmod +x reset_docker_and_build.sh
+```
+4. Run the build script:
+
+```bash
 ./reset_docker_and_build.sh
 ```
 
 If the script is already executable, you can omit the `chmod` command.
 
+#### Windows (PowerShell)
+
+1. Open PowerShell.
+2. Change to your repository folder:
+
+```powershell
+cd $HOME\turtlebot-cms-repo
+```
+3. Run the helper script:
+
+```powershell
+.\windows_reset_docker_script.ps1
+```
+
+If PowerShell blocks the script, run:
+
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Bypass -Force
+.\windows_reset_docker_script.ps1
+```
+
+#### Windows (cmd.exe)
+
+1. Open Command Prompt.
+2. Change to the repository directory:
+
+```cmd
+cd %USERPROFILE%\turtlebot-cms-repo
+```
+3. Run the wrapper script:
+
+```cmd
+windows_reset_docker_script.cmd
+```
+
 ---
 
 ### 3. Open in Dev Container
+
+#### Linux / macOS
 
 1. From the host terminal run:
 
@@ -79,13 +94,21 @@ If the script is already executable, you can omit the `chmod` command.
 xhost +local:docker
 ```
 
-2. Launch VS Code:
+2. Launch VS Code from the source folder:
 
 ```bash
-cd ~/turtlrbot-cms-repo/src
+cd ~/turtlebot-cms-repo/src
 code .
 ```
 
+#### Windows
+
+1. Open VS Code.
+2. Choose `File > Open Folder` and select the folder:
+
+```text
+C:\Users\<your-user>\turtlebot-cms-repo\src
+```
 3. In VS Code:
   - Press `Ctrl+Shift+P`
   - Select `Dev Containers: Rebuild and Reopen in Container`
