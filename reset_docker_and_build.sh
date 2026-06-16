@@ -31,7 +31,7 @@ fi
 echo "Cleanup complete."
 
 # --- PATH SELECTION SECTION ---
-DEFAULT_PATH="$HOME/turtlebot-cms-reposrc/.devcontainer"
+DEFAULT_PATH="$HOME/turtlebot-cms-repo/src/.devcontainer"
 
 echo ""
 echo "==============================="
