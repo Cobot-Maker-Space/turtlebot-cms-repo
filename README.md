@@ -1,6 +1,6 @@
 # ROS2 Humble Development Container 
 
-This repository contains a ready-to-use **Docker-based ROS 2 Humble** development environment. It includes Visual Studio Code support, useful extensions, and common ROS 2 packages preinstalled (like ur3 drivers, moveit, etc.) — making it easy to get started with simulation and development on Linux. All the commands are provided with the assumption that you have cloned the repo in the home directory of the user. 
+This repository contains a ready-to-use **Docker-based ROS 2 Humble** development environment. It includes Visual Studio Code support, useful extensions, and common ROS 2 packages preinstalled — making it easy to get started with simulation and development on Linux. All the commands are provided with the assumption that you have cloned the repo in the home directory of the user. 
 
 ---
 
